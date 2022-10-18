@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>City Finder</title>
+    </head>
+    <body>
+    <form>
+        Enter A Utah City: <input type="text" id="cityField" value=""><br>
+        Suggestion: <span id="txtHint">Empty</span>
+        <input id="weatherButton" type="submit" value="Submit">
+    </form>
+    <p>City</p>
+    <textarea id="displayCity">No City</textarea>
+    <p>Current Weather</p>
+    <div id="weather">No weather</div>
+    
+    <script>
+    document.getElementById("cityField").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    const url = "https://csonline.byu.edu/city?q=" +
+      document.getElementById("cityField").value;
+    fetch(url)
+        .then(function(response) {
+            return response.json();
+        }).then(function(json) {
+            console.log(json);
+            console.log(json[0]);
+            console.log("Got " + json[0].city);
+            const everything = document.createElement("ul");
+            for (let i = 0; i < json.length; i++) {
+                const value = json[i].city;
+                const listItem = document.createElement("li");
+                listItem.appendChild(document.createTextNode(value));
+                everything.appendChild(listItem);
+            };
+            const txtHint = document.getElementById("txtHint");
+            txtHint.textContent = "";
+            txtHint.appendChild(everything);
+        });
+    });
+</script>
+
+    </body>
+</html>

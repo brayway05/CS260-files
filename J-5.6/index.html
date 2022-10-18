@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>XKCD</title>
+
+<body>
+
+  <p>Weather</p>
+  <div id="Date">Date: </div>
+</body>
+
+<script>
+
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '48d869edd1msh6204237655d9ff0p10834ajsnd00b67664ee9',
+		'X-RapidAPI-Host': 'aerisweather1.p.rapidapi.com'
+	}
+};
+
+fetch('https://aerisweather1.p.rapidapi.com/forecasts/provo,ut', options)
+	.then(response => response.json())
+	.then(response => { 
+	    console.log(response);
+	    displayTemperature(response)
+	})
+	.catch(err => console.error(err));
+	
+	
+function displayTemperature(data) {
+    const mondayDate = data.response[0].periods[0].dateTimeISO;
+    const heading = document.getElementById("Date");
+    heading.appendChild(document.createTextNode(mondayDate));
+}
+
+  /*var myurl = "https://cors-anywhere.herokuapp.com";
+  myurl += "/xkcd.com/info.0.json";
+  console.log(myurl);
+  fetch(myurl, {mode: 'cors'})
+    .then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      console.log(json);
+      const alt = document.createTextNode(json["alt"]);
+      const container = document.getElementById("comic");
+      container.textContent = "";
+      container.appendChild(alt);
+    });*/
+</script>
+</html>

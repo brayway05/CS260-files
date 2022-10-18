@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    font-family: Courier;
+    background-color: #fadab9;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  page {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  row {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  column {
+    flex-wrap: wrap;
+  }
+  profile-pic {
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  page {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  row {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  column {
+    flex-wrap: wrap;
+  }
+  profile-pic {
+    flex-wrap: wrap;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  
+  /* Home page */
+  .intro {
+    float: left;
+    margin: 25px;
+  }
+
+  .containter {
+   float: left;
+    display: flex;
+    width: 1000px;
+    height: 200px;
+  }
+
+  .row {
+    width: 500px;
+    height: 400px;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+  } 
+}
+
+li a:hover {
+  background-color: #f3b069;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: #CDA053;
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+}
+
+/* Menu */
+.bg-dark {
+  background-color: #f3b069 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #333;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.nav-item {
+  text-decoration: underline;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.home-photo {
+  position: static;
+  margin-bottom: 50px;
+  flex-direction: column;
+}
+
+/* Image Grid */
+.grid {
+  display: grid;
+  grid-template: auto auto auto auto auto / 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+
+.image img {
+  width: 100%;
+  border-width: 2px;
+  border-color: black;
+}
+
+/* Review circles */ 
+.profile-pic {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin: 25px;
+  border-radius: 40px;
+}
+
+.column {
+  float: left;
+  width: 100%;
+  margin: 20px 1.15%;
+  height: 160px;
+  background-color: #f3b069;   /*orange*/
+}
+
+.footer {
+  overflow: hidden;
+  background-color: #fadab9;
+}
+
+h4 {
+  text-size-adjust: auto;
+  padding-top: 20px;
+}
+
+h2 {
+  font-size: 4vw;
+}
