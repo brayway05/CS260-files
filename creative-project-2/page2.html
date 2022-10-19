@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel = 'stylesheet' href='styles.css'/>
+    <title>Do One Project</title>
+</head>
+<body>
+    <!-- Menu Navegation Bar -->
+    <div class="menu">
+        <h4 id="name">Christensen</h4>
+        <div class="navbar">
+          <nav class="navbar navbar-expand-lg navbar-dark" style="color:white"> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active" style="color:white">
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="page2.html">Look Up</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="info2.html">Info 2</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="info3.html">Info 3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="sources.html">Sources</a>
+                  </li>
+                </ul>
+            </div>
+          </nav>
+        </div>
+    </div>
+    
+    <form>
+        <br>
+        <h3>Word search</h3>
+        <label>Search!</label>
+        <br>
+        <input id="wordToCheck" type="text"></input>
+        <br>
+        <br>
+        <input id="wordToSearch" type="submit" value="Submit"></input>
+        <br>
+        <br>
+    </form>
+    
+    <div id="wordSearchResults">
+        <script> 
+        document.getElementById("wordToSearch").addEventListener("click", function(event) {
+            event.preventDefault();
+            const value = document.getElementById("wordToCheck").value;
+            if (value === "") {
+            return;
+        }
+        console.log(value);
+        const url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + value;
+        fetch(url)
+          .then(function(response) {
+            return response.json();
+          }).then(function(json) {
+        console.log(json[0]["meanings"]);
+        let results = "";
+        results += '<h2>' + value + '</h2>';
+        for (let i = 0; i < json[0]["meanings"].length; ++i) {
+            console.log(i);
+            let defNum = i + 1;
+            results += '<h3>Definition ' + defNum + '</h3>';
+            results += '<h4>Part of speech:</h4><p>' + json[0]["meanings"][i]["partOfSpeech"] + '</p>';
+            results += '<h4>Definition:</h4><p>' + json[0]["meanings"][i]["definitions"][0]["definition"] + '</p>';
+            results += '<h4>Synonyms:</h4>';
+            if (json[0]["meanings"][i]["synonyms"].length === 0) {
+                results += "<p>None found</p>"
+            }
+            for (let j = 0; j < json[0]["meanings"][i]["synonyms"].length; j++) {
+                results += '<p>' + json[0]["meanings"][i]["synonyms"][j] + '</p>';
+            }
+        }
+                    // console.log(json.license);
+        document.getElementById("wordSearchResults").innerHTML = results;
+
+        })
+
+        })
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    </div>
+    
+    <footer class="footer">
+        <p class="footer-info">BYU FALL 2022</p>
+        <a href="...">Github repository</a>
+    </footer>
+</body>

@@ -1,6 +1,7 @@
 * {
     background-color: black;
     color: white;
+    box-sizing: border-box;
 }
 
 footer {
@@ -13,12 +14,59 @@ footer {
 }
 
 .menu {
-    float: right;
+    display: flex;
+    justify-content: space-between;
 }
 
 #name {
+    display: flex;
     margin-top: 10px;
     float: left;
     color: white;
     margin-left: 5px;
 }
+
+.navbar {
+    display: flex;
+    float: right;
+}
+
+.page {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#topic-box {
+    display: flex;
+    float: left;
+    height: 200px;
+    width: 600px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    margin-left: 50px;
+    justify-content: center;
+}
+
+#topic-title {
+    display: flex;
+    text-align: center;
+}
+
+#temple-photo {
+    display: flex;
+    float: right;
+    height: 200px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    margin-left: 50px;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
