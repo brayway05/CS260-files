@@ -1,0 +1,17 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "In this directory you will find a help ticket web application. This is split into a front end and a back end.",
+  "main": "tickets.js",
+  "homepage": ".",
+  "proxy": "http://localhost:3000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
+}
